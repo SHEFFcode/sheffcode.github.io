@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DIVVYfans</title>
+    <title>DIVVYfans Photos</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -21,10 +21,10 @@
                     <a href="#"><img src="img/logo.svg" alt="divvy logo"></a>
                 </div> <!-- /.brand -->
                 <div class="nav-div">
-                <a href="#"><p><i class="fa fa-book"></i> stories</p></a>
+                    <a href="#"><p><i class="fa fa-book"></i> stories</p></a>
                 </div> <!-- /.stories -->
                 <div class="nav-div">
-                    <a href="photos.html"><p><i class="fa fa-picture-o"></i> photos</p></a>
+                    <a class="active" href="#"><p><i class="fa fa-picture-o"></i> photos</p></a>
                 </div> <!-- /.photos -->
                 <div class="nav-div">
                     <a href="#"><p><i class="fa fa-video-camera"></i> videos</p></a>
@@ -39,30 +39,44 @@
             </div> <!-- /.nav-container -->
         </nav>
 
-        <section class="index-content">
-            <div class="container">
-                <div class="welcome">
-                    <h1>Divvy Fans</h1>
-                    <p>Hello, and welcome to the divvy fans website! Feel free to share or just browse around to see what's new and exciting in the world of divvy.</p>
+        <section class="photos-content">
+            <div class="container photo-container">
+                <div class="instagram">
+
                 </div>
-                <div class="buttons">
-                    <img class="arrow-left" src="img/left_copy.png" alt="left arrow">
-                    <img class="arrow-right" src="img/right_copy.png" alt="right arrow">
-                    <div class="clear"></div>
-                </div> <!-- /.buttons -->
             </div><!-- .container -->
         </section> <!-- /.content -->
+
     </main>
-    <div class="push"></div>
-    <footer class="footer">
+<!--     <div class="push"></div> -->
+<!--     <footer class="footer">
         <p>&copy; SHEFFcode 2015. All rights reserved.</p>
-    </footer>
+    </footer> -->
 
     <!-- Scripts -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <!-- Instagram -->
+    <script type="text/javascript" src="js/vendor/insta.js"></script>
+    <script>
+        jQuery(function($) {
+          $('.instagram').on('willLoadInstagram', function(event, options) {
+            console.log(options);
+        });
+          $('.instagram').on('didLoadInstagram', function(event, response) {
+            console.log(response);
+            for ( var obj in response.data){
+                $('.instagram').append('<div class="image-div"><img src="' + response.data[obj].images.low_resolution.url + ' "></div>');
+            }
+        });
+          $('.instagram').instagram({
+            hash: 'divvy',
+            clientId: '1d60092324264d1681671e08f58b8936'
+        });
+      });
+    </script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
