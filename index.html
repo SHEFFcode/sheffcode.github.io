@@ -13,24 +13,24 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="pageWrapper">
     <main role="main">
         <nav>
-            <div class="nav-container">
+            <div class="nav-container" id="nav">
                 <div class="nav-div logo">
-                    <a href="#"><img src="img/logo.svg" alt="divvy logo"></a>
+                    <a href="#welcome"><img src="img/logo.svg" alt="divvy logo"></a>
                 </div> <!-- /.brand -->
                 <div class="nav-div">
-                <a href="#"><p><i class="fa fa-book"></i> stories</p></a>
+                <a href="#stories"><p><i class="fa fa-book"></i> stories</p></a>
                 </div> <!-- /.stories -->
                 <div class="nav-div">
-                    <a href="photos.html"><p><i class="fa fa-picture-o"></i> photos</p></a>
+                    <a href="#photos"><p><i class="fa fa-picture-o"></i> photos</p></a>
                 </div> <!-- /.photos -->
                 <div class="nav-div">
-                    <a href="#"><p><i class="fa fa-video-camera"></i> videos</p></a>
+                    <a href="#video"><p><i class="fa fa-video-camera"></i> videos</p></a>
                 </div> <!-- /.videos -->
                 <div class="nav-div">
-                    <a href="#"><p><i class="fa fa-users"></i> about</p></a>
+                    <a href="#about"><p><i class="fa fa-users"></i> about</p></a>
                 </div> <!-- /.about -->
                 <div class="nav-div fun">
                     <a href="#"><p><i class="fa fa-bicycle"></i> fun</p></a>
@@ -39,39 +39,127 @@
             </div> <!-- /.nav-container -->
         </nav>
 
-        <section class="index-content">
-            <div class="container">
-                <div class="welcome">
-                    <h1>Divvy Fans</h1>
-                    <p>Hello, and welcome to the divvy fans website! Feel free to share or just browse around to see what's new and exciting in the world of divvy.</p>
-                </div>
+        <section class="index-content full">
+            <div class="slide" id="welcome">
+                <div class="container">
+                    <div class="welcome">
+                        <h1>Divvy Fans</h1>
+                        <p>Hello, and welcome to the divvy fans website! Feel free to share or just browse around to see what's new and exciting in the world of divvy.</p>
+                    </div>
+                    <div class="buttons">
+                        <img class="arrow-left" src="img/left_copy.png" alt="left arrow">
+                        <img class="arrow-right" src="img/right_copy.png" alt="right arrow">
+                        <div class="clear"></div>
+                    </div> <!-- /.buttons -->
+                </div><!-- .container -->
+            </div> <!-- /.slide welcome -->
+            <div class="slide" id="stories">
+                <div class="container">
+                    <div class="welcome">
+                        <h1>Divvy Stories</h1>
+                        <p>Tell your divvy stories here.</p>
+                    </div>
+                </div><!-- .container -->
+            </div> <!-- /.stories -->
+            <div class="slide" id="photos">
+                <div class="container photo-container">
+                    <div class="instagram"></div>
+                </div><!-- .container -->
+            </div> <!-- /.slide photos -->
+            <div class="slide" id="video">
                 <div class="buttons">
                     <img class="arrow-left" src="img/left_copy.png" alt="left arrow">
                     <img class="arrow-right" src="img/right_copy.png" alt="right arrow">
                     <div class="clear"></div>
                 </div> <!-- /.buttons -->
-            </div><!-- .container -->
+                <div class="container video">
+                    <iframe src="https://www.youtube.com/embed/f0Rdjn6SfRI" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div> <!-- /.slide video-->
+            <div class="slide" id="about">
+                <div class="container bio-container">
+                    <div class="bio">
+                        <h1>Jeremy "SHEFFmachine" Shefer</h1>
+                        <p>I have always been a huge fan of biking and care free living. I am fortunate enough to live in a city where public transit can take you just about anywhere. However, it is often slow, and because of that I was always looking for an alternative to trains and busses. Divvy is that alternative. It allows me to navigate the city without a car, in an eco friendly, healthy and fun way. I am a huge fan of divvy, and I presume that if you have found your way onto this page, you are as well.</p>
+                        <p>You suggestions are always appreciated, please <a href="mailto:sheff_ne@yahoo.com">leave me a line.</a></p>
+                    </div> <!-- /.bio -->
+                    <div calss="portrait">
+                        <img id="bio-pic" width="40%" src="img/sheff.jpg"><br>
+                        <img width="40%" src="img/sheffsmile.jpg">
+                    </div> <!-- /.portrait -->
+                </div><!-- .container -->
+            </div> <!-- /.slide about -->
         </section> <!-- /.content -->
     </main>
-    <div class="push"></div>
+<!--     <div class="push"></div>
     <footer class="footer">
         <p>&copy; SHEFFcode 2015. All rights reserved.</p>
-    </footer>
+    </footer> -->
 
     <!-- Scripts -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script src="/Users/sheffne/Desktop/GA/Final_Project/divvyFans/js/vendor/jquery.alton.min.js"></script>
+    <!-- Scroll Script -->
     <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='http://www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-    </script>
+        $(document).alton({
+
+    // The full height container
+
+    fullSlideContainer: 'full',
+
+    // The full height slide class
+
+    singleSlideClass: 'slide',
+
+    // Enable side navigation
+
+    useSlideNumbers: true,
+
+    // Set the outside color of the pagination items
+
+    slideNumbersBorderColor: '#fff',
+
+    // Set the inner color of the pagination items (not active)
+
+    slideNumbersColor: 'transparent',
+
+    // The body class
+
+    bodyContainer: 'pageWrapper',
+
+});
+</script> <!-- /.scroll script -->
+<!-- Instagram -->
+<script type="text/javascript" src="js/vendor/insta.js"></script>
+<script>
+    jQuery(function($) {
+      $('.instagram').on('willLoadInstagram', function(event, options) {
+        console.log(options);
+    });
+      $('.instagram').on('didLoadInstagram', function(event, response) {
+        console.log(response);
+        for (var i = 0; i < 6; i++){
+            $('.instagram').append('<div class="image-div"><img src="' + response.data[i].images.low_resolution.url + ' "></div>');
+        }
+    });
+      $('.instagram').instagram({
+        hash: 'divvy',
+        clientId: '1d60092324264d1681671e08f58b8936'
+    });
+  });
+</script> <!-- / instagram script -->
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='http://www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+</script>
 </body>
 </html>

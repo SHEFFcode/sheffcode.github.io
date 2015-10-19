@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DIVVYfans Photos</title>
+    <title>DIVVYfans</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -21,16 +21,16 @@
                     <a href="index.html"><img src="img/logo.svg" alt="divvy logo"></a>
                 </div> <!-- /.brand -->
                 <div class="nav-div">
-                    <a href="#"><p><i class="fa fa-book"></i> stories</p></a>
+                <a href="#"><p><i class="fa fa-book"></i> stories</p></a>
                 </div> <!-- /.stories -->
                 <div class="nav-div">
-                    <a class="active" href="photos.html"><p><i class="fa fa-picture-o"></i> photos</p></a>
+                    <a href="photos.html"><p><i class="fa fa-picture-o"></i> photos</p></a>
                 </div> <!-- /.photos -->
                 <div class="nav-div">
                     <a href="videos.html"><p><i class="fa fa-video-camera"></i> videos</p></a>
                 </div> <!-- /.videos -->
                 <div class="nav-div">
-                    <a href="#"><p><i class="fa fa-users"></i> about</p></a>
+                    <a href="about.html" class="active"><p><i class="fa fa-users"></i> about</p></a>
                 </div> <!-- /.about -->
                 <div class="nav-div fun">
                     <a href="#"><p><i class="fa fa-bicycle"></i> fun</p></a>
@@ -39,44 +39,30 @@
             </div> <!-- /.nav-container -->
         </nav>
 
-        <section class="photos-content">
-            <div class="container photo-container">
-                <div class="instagram">
-
+        <section class="about-content">
+            <div class="container bio-container">
+                <div class="bio">
+                    <h1>Jeremy "SHEFFmachine" Shefer</h1>
+                    <p>I have always been a huge fan of biking and care free living. I am fortunate enough to live in a city where public transit can take you just about anywhere. However, it is often slow, and because of that I was always looking for an alternative to trains and busses. Divvy is that alternative. It allows me to navigate the city without a car, in an eco friendly, healthy and fun way. I am a huge fan of divvy, and I presume that if you have found your way onto this page, you are as well.</p>
+                    <p>You suggestions are always appreciated, please <a href="mailto:sheff_ne@yahoo.com">leave me a line.</a></p>
+                </div> <!-- /.bio -->
+                <div calss="portrait">
+                    <img id="bio-pic" width="40%" src="img/sheff.jpg"><br>
+                    <img width="40%" src="img/sheffsmile.jpg">
                 </div>
             </div><!-- .container -->
         </section> <!-- /.content -->
-
     </main>
-<!--     <div class="push"></div> -->
-<!--     <footer class="footer">
+    <div class="push"></div>
+    <footer class="footer">
         <p>&copy; SHEFFcode 2015. All rights reserved.</p>
-    </footer> -->
+    </footer>
 
     <!-- Scripts -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-    <!-- Instagram -->
-    <script type="text/javascript" src="js/vendor/insta.js"></script>
-    <script>
-        jQuery(function($) {
-          $('.instagram').on('willLoadInstagram', function(event, options) {
-            console.log(options);
-        });
-          $('.instagram').on('didLoadInstagram', function(event, response) {
-            console.log(response);
-            for ( var obj in response.data){
-                $('.instagram').append('<div class="image-div"><img src="' + response.data[obj].images.low_resolution.url + ' "></div>');
-            }
-        });
-          $('.instagram').instagram({
-            hash: 'divvy',
-            clientId: '1d60092324264d1681671e08f58b8936'
-        });
-      });
-    </script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
