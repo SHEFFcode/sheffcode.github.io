@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css">
 </head>
 <body class="pageWrapper">
     <main role="main">
@@ -21,7 +22,7 @@
                     <a href="#welcome"><img src="img/logo.svg" alt="divvy logo"></a>
                 </div> <!-- /.brand -->
                 <div class="nav-div">
-                <a href="#stories"><p><i class="fa fa-book"></i> stories</p></a>
+                    <a href="#stories"><p><i class="fa fa-book"></i> stories</p></a>
                 </div> <!-- /.stories -->
                 <div class="nav-div">
                     <a href="#photos"><p><i class="fa fa-picture-o"></i> photos</p></a>
@@ -42,15 +43,25 @@
         <section class="index-content full">
             <div class="slide" id="welcome">
                 <div class="container">
-                    <div class="welcome">
-                        <h1>Divvy Fans</h1>
-                        <p>Hello, and welcome to the divvy fans website! Feel free to share or just browse around to see what's new and exciting in the world of divvy.</p>
+                    <div class="mapWelcome">
+                        <h1>Hello and welcome to divvy fans website!</h1>
                     </div>
-                    <div class="buttons">
-                        <img class="arrow-left" src="img/left_copy.png" alt="left arrow">
-                        <img class="arrow-right" src="img/right_copy.png" alt="right arrow">
-                        <div class="clear"></div>
-                    </div> <!-- /.buttons -->
+                    <div class="mapWrap">
+                        <div id="map" style="width: 600px; height: 400px"></div><br/>
+                        <input id="prefer_bikes" type="radio" name="prefer" value="bikes" onClick="updateToggles(this);"/>
+                        <label for="prefer_bikes">Only show stations with available bikes</label><br/>
+                        <input id="prefer_docks" type="radio" name="prefer" value="docks" onClick="updateToggles(this);"/>
+                        <label for="prefer_docks">Only show stations with available docks</label><br/>
+                        <input id="prefer_all" type="radio" name="prefer" value="all" onClick="updateToggles(this);" checked/>
+                        <label for="prefer_all">Show all stations</label>
+                    </div> <!-- /.mapWrap -->
+                    <div class="mapText">
+                        <p>Hello and Welcome to the world-wide divvy bike fan website.  This site is ran by a guy who is a lot like you. I love to bike, explore the city, drink craft beer and enjoy life.</p>
+                        <p>I am currenly studying web development at GA in Chicago, with big dreams in persuing my passion for computer science and living life to the fullest.</p>
+                        <p>Please take a look at the map to the left to find the closest divvy bike. Click anywhere on the map to display the five nearest stations to that spot, along with information for bike availability.</p>
+                        <br>
+                        <img src="http://bramble-staging.s3-website-us-east-1.amazonaws.com/humphd/198/bike.png" alt="pixel bike">
+                    </div>
                 </div><!-- .container -->
             </div> <!-- /.slide welcome -->
             <div class="slide" id="stories">
@@ -63,7 +74,12 @@
             </div> <!-- /.stories -->
             <div class="slide" id="photos">
                 <div class="container photo-container">
-                    <div class="instagram"></div>
+                    <div class="instagram">
+                        <img class="leftarrow" src="img/left.png">
+                        <img class="rightarrow" src="img/right.png">
+                        <div class="instaImg"></div>
+                        <div class="instaCapt"></div>
+                    </div> <!-- /.instagram -->
                 </div><!-- .container -->
             </div> <!-- /.slide photos -->
             <div class="slide" id="video">
@@ -84,8 +100,8 @@
                         <p>You suggestions are always appreciated, please <a href="mailto:sheff_ne@yahoo.com">leave me a line.</a></p>
                     </div> <!-- /.bio -->
                     <div calss="portrait">
-                        <img id="bio-pic" width="40%" src="img/sheff.jpg"><br>
-                        <img width="40%" src="img/sheffsmile.jpg">
+                        <img id="bio-pic" width="40%" src="img/sheff.jpg" alt="sheff"><br>
+                        <img width="40%" src="img/sheffsmile.jpg" alt="smiling sheff">
                     </div> <!-- /.portrait -->
                 </div><!-- .container -->
             </div> <!-- /.slide about -->
@@ -101,7 +117,8 @@
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-    <script src="/Users/sheffne/Desktop/GA/Final_Project/divvyFans/js/vendor/jquery.alton.min.js"></script>
+    <script src="js/vendor/jquery.alton.min.js"></script>
+        <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
     <!-- Scroll Script -->
     <script>
         $(document).alton({
@@ -132,25 +149,52 @@
 
 });
 </script> <!-- /.scroll script -->
+
+<script>
+//Divvy
+
+var prefer = null;
+var map = L.map('map').setView([41.8826, -87.6506], 13);
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+}).addTo(map);
+var geojsonLayer = new L.GeoJSON([], {
+    onEachFeature: function (feature, layer) {
+        layer.bindPopup("<h4>"+feature.properties.stationName+"</h4><p>" + feature.properties.availableBikes + " bikes, " + feature.properties.availableDocks + " docks available.</p>");
+    }
+});
+function updateToggles(radio) {
+    if (radio.value === "all") {
+        prefer = null;
+    } else {
+        prefer = radio.value;
+    }
+}
+function onMapClick(e) {
+    console.log("You clicked the map at " + e.latlng.toString());
+    var xhrequest = new XMLHttpRequest();
+    var url= "http://shrouded-beach-2183.herokuapp.com/stations/nearby?lat="+e.latlng.lat+"&lon="+e.latlng.lng;
+    if (prefer) {
+        url += "&prefer="+prefer;
+    }
+    xhrequest.onreadystatechange = function() {
+        if (xhrequest.readyState == 4) {
+            if (xhrequest.status == 200) {
+                geojsonLayer.clearLayers();
+                var layerItems =  JSON.parse(xhrequest.responseText);
+                geojsonLayer.addData(layerItems);
+                map.addLayer(geojsonLayer);
+            }
+        }
+    };
+    xhrequest.open('GET', url, true);
+    xhrequest.send(null);
+}
+map.on('click', onMapClick);
+</script>
 <!-- Instagram -->
 <script type="text/javascript" src="js/vendor/insta.js"></script>
-<script>
-    jQuery(function($) {
-      $('.instagram').on('willLoadInstagram', function(event, options) {
-        console.log(options);
-    });
-      $('.instagram').on('didLoadInstagram', function(event, response) {
-        console.log(response);
-        for (var i = 0; i < 6; i++){
-            $('.instagram').append('<div class="image-div"><img src="' + response.data[i].images.low_resolution.url + ' "></div>');
-        }
-    });
-      $('.instagram').instagram({
-        hash: 'divvy',
-        clientId: '1d60092324264d1681671e08f58b8936'
-    });
-  });
-</script> <!-- / instagram script -->
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
