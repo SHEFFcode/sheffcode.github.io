@@ -396,6 +396,27 @@ footer p{
     margin: 0;
     padding: 10px 0;
 }
+
+.bike{
+  animation-duration: 5s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  0% {
+    margin-left: 100%;
+    width: 300px; 
+  }
+
+  50% {
+    margin-left: 0%;
+    width: 300px;
+  }
+
+  100%{
+    margin-left: auto;
+  }
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
