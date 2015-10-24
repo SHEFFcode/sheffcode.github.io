@@ -10,7 +10,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
+   html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
@@ -48,7 +48,7 @@ iframe{
  * Customize the background color to match your design.
  */
 
-::-moz-selection {
+ ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
 }
@@ -62,7 +62,7 @@ iframe{
  * A better looking default horizontal rule
  */
 
-hr {
+ hr {
     display: block;
     height: 1px;
     border: 0;
@@ -77,12 +77,12 @@ hr {
  * https://github.com/h5bp/html5-boilerplate/issues/440
  */
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
+ audio,
+ canvas,
+ iframe,
+ img,
+ svg,
+ video {
     vertical-align: middle;
 }
 
@@ -90,7 +90,7 @@ video {
  * Remove default fieldset styles.
  */
 
-fieldset {
+ fieldset {
     border: 0;
     margin: 0;
     padding: 0;
@@ -100,7 +100,7 @@ fieldset {
  * Allow only vertical resizing of textareas.
  */
 
-textarea {
+ textarea {
     resize: vertical;
 }
 
@@ -108,7 +108,7 @@ textarea {
    Browser Upgrade Prompt
    ========================================================================== */
 
-.browserupgrade {
+   .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
     color: #000;
@@ -118,7 +118,7 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-.nav-container{
+   .nav-container{
     background-color: #49B6E9;
     width: 100%-10px;
     height: 60px;
@@ -162,7 +162,7 @@ textarea {
 }
 
 .videos-content{
-/*    padding-top: 60px;*/
+    /*    padding-top: 60px;*/
     height: 100%;
 }
 
@@ -291,8 +291,8 @@ footer p{
 }
 
 .bio-container{
-        height: calc(100%);
-            overflow: hidden;
+    height: calc(100%);
+    overflow: hidden;
 }
 
 #bio-pic{
@@ -406,17 +406,216 @@ footer p{
   0% {
     margin-left: 100%;
     width: 300px; 
-  }
+}
 
-  50% {
+50% {
     margin-left: 0%;
     width: 300px;
-  }
-
-  100%{
-    margin-left: auto;
-  }
 }
+
+100%{
+    margin-left: auto;
+}
+}
+
+/*// Docks*/
+#dock-container {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    display: none;
+}
+#dock {
+    position: relative;
+    display: inline-block;
+    -webkit-perspective: 400;
+    -moz-perspective: 400;
+}
+
+#dock span{
+    color: #fff;
+}
+#dock .base {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    z-index: -10;
+    background-color: #888;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#333), to(#ccc));
+    background-image: -webkit-linear-gradient(top, #333, #999); 
+    background-image: -moz-linear-gradient(top, #333, #999); /* Gradient works on FF 3.6+ */
+    opacity: .5;
+    border-bottom: 2px #aaa solid;
+    -webkit-transform-origin: 50% 100%;
+    -webkit-transform: rotateX(55deg); /* 3d - works on webkit only */
+    -moz-transform-origin: 50% 100%;
+    -moz-transform: rotateX(55deg); /* not supported on current 3.7 */
+    -o-transform-origin: 50% 100%;
+    -o-transform: rotateX(55deg); /* not supported on current 10.6 */
+}
+#dock ul {
+    font-size: 14px;
+    padding: 0 30px;
+    margin: 0;
+}
+#dock li {
+    list-style-type: none;
+    display: inline-block;
+    position: relative;     
+}
+#dock li span {
+    display: none;
+    position: absolute;
+    bottom: 140px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,.75);
+    padding: 4px 0;
+    border-radius: 12px; /* webkit nightly */
+    -webkit-border-radius: 12px; /* for safari */
+    -moz-border-radius: 12px;
+}
+#dock li:hover span {
+    display: block;
+}
+#dock li img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 10px;
+    -webkit-box-reflect: below 2px
+    -webkit-gradient(linear, left top, left bottom, from(transparent),
+        color-stop(0.7, transparent), to(rgba(255,255,255,.5)));
+    -webkit-box-reflect: below 2px -webkit-linear-gradient(top, transparent, rgba(255,255,255,.3));
+    -webkit-transition: all 0.3s;
+    -webkit-transform-origin: 50% 100%;
+    -moz-transition: all 0.4s;
+    -moz-transform-origin: 50% 100%;
+    -o-transition: all 0.3s;
+    -o-transform-origin: 50% 100%;
+}
+#dock li:hover img { 
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -o-transform: scale(2);
+    margin: 0 2em 10px;
+}
+
+/* one element after and element before (with JS)*/
+#dock li:hover + li img,
+#dock li.prev img {
+    -webkit-transform: scale(1.4);
+    -moz-transform: scale(1.4);
+    -o-transform: scale(1.4);
+    margin: 0 1.4em 10px;
+}
+
+.timeline-container{
+    padding-top: 100px;
+}
+
+.timeline{
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;  
+}
+
+.timeline-box{
+    position: absolute;
+    width: 50%;
+    height: 400px;
+    text-align: left;
+    border: 2px solid black;
+    left: 50%;
+    top: 100px;
+    margin-left: -25%;
+}
+
+#Y2007{
+    width: 900px;
+    border: 3px solid #000;
+    height: 400px;
+    padding: 10px;
+    background-color: rgba(255,255,255,.9);
+    display: inline-block;
+}
+
+#Y2007 img{
+    margin-top: 50px;
+}
+
+#Y2012{
+    width: 900px;
+    border: 3px solid #000;
+    height: 400px;
+    padding: 10px;
+    background-color: rgba(255,255,255,.9);
+    left: 100%;
+}
+
+#Y2012 img{
+    margin-top: 50px;
+}
+#Y2014{
+    width: 900px;
+    border: 3px solid #000;
+    height: 400px;
+    padding: 10px;
+    background-color: rgba(255,255,255,.9);
+    display: inline-block;
+    left: 150%;
+}
+
+#Y2014 img{
+    margin-top: 50px;
+}
+
+#iJoin{
+    width: 900px;
+    border: 3px solid #000;
+    height: 400px;
+    padding: 10px;
+    background-color: rgba(255,255,255,.9);
+    display: inline-block;
+    left: 200%;
+}
+
+#iJoin img{
+    margin-top: 50px;
+}
+
+#sheffBrick{
+    width: 900px;
+    border: 3px solid #000;
+    height: 400px;
+    padding: 10px;
+    background-color: rgba(255,255,255,.9);
+    display: inline-block;
+    left: 250%;
+}
+
+#sheffBrick img{
+    margin-top: 50px;
+}
+
+#sheffGA{
+    width: 900px;
+    border: 3px solid #000;
+    height: 400px;
+    padding: 10px;
+    background-color: rgba(255,255,255,.9);
+    display: inline-block;
+    left: 300%;
+}
+
+#sheffGA img{
+    margin-top: 50px;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -426,7 +625,7 @@ footer p{
  * http://juicystudio.com/article/screen-readers-display-none.php
  */
 
-.hidden {
+ .hidden {
     display: none !important;
     visibility: hidden;
 }
@@ -436,7 +635,7 @@ footer p{
  * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
 
-.visuallyhidden {
+ .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -453,8 +652,8 @@ footer p{
  * https://www.drupal.org/node/897638
  */
 
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
+ .visuallyhidden.focusable:active,
+ .visuallyhidden.focusable:focus {
     clip: auto;
     height: auto;
     margin: 0;
@@ -467,7 +666,7 @@ footer p{
  * Hide visually and from screen readers, but maintain layout
  */
 
-.invisible {
+ .invisible {
     visibility: hidden;
 }
 
@@ -483,8 +682,8 @@ footer p{
  *    `:before` to contain the top-margins of child elements.
  */
 
-.clearfix:before,
-.clearfix:after {
+ .clearfix:before,
+ .clearfix:after {
     content: " "; /* 1 */
     display: table; /* 2 */
 }
@@ -499,14 +698,14 @@ footer p{
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
+   @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
 }
 
 @media print,
-       (-o-min-device-pixel-ratio: 5/4),
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 120dpi) {
+(-o-min-device-pixel-ratio: 5/4),
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
 
@@ -516,13 +715,13 @@ footer p{
    http://www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
 
-@media print {
+   @media print {
     *,
     *:before,
     *:after {
         background: transparent !important;
         color: #000 !important; /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
+        http://www.sanbeiji.com/archives/953 */
         box-shadow: none !important;
         text-shadow: none !important;
     }
@@ -545,8 +744,8 @@ footer p{
      * or use the `javascript:` pseudo protocol
      */
 
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
+     a[href^="#"]:after,
+     a[href^="javascript:"]:after {
         content: "";
     }
 
@@ -561,7 +760,7 @@ footer p{
      * http://css-discuss.incutio.com/wiki/Printing_Tables
      */
 
-    thead {
+     thead {
         display: table-header-group;
     }
 

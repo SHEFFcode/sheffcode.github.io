@@ -1,3 +1,99 @@
+//Timeline
+$('#A1').click(function(e) {
+    e.preventDefault();
+    $('#Y2007').animate({
+        left: '50%',
+    }, 500 );
+    $('#Y2012').animate({
+        left: '100%',
+    }, 500 );
+    $('#Y2014').animate({
+        left: '150%',
+    }, 500 );
+    $('#sheffBrick').animate({
+        left: '200%',
+    }, 500 );
+    $('#sheffGA').animate({
+        left: '250%',
+    }, 500 );
+});
+
+$('#A2').click(function(e) {
+    e.preventDefault();
+    $('#Y2007').animate({
+        left: '0',
+    }, 500 );
+    $('#Y2012').animate({
+        left: '50%',
+    }, 500 );
+    $('#Y2014').animate({
+        left: '100%',
+    }, 500 );
+    $('#sheffBrick').animate({
+        left: '150%',
+    }, 500 );
+    $('#sheffGA').animate({
+        left: '200%',
+    }, 500 );
+});
+
+$('#A3').click(function(e) {
+    e.preventDefault();
+    $('#Y2007').animate({
+        left: '-50%',
+    }, 500 );
+    $('#Y2012').animate({
+        left: '0%',
+    }, 500 );
+    $('#Y2014').animate({
+        left: '50%',
+    }, 500 );
+    $('#sheffBrick').animate({
+        left: '100%',
+    }, 500 );
+    $('#sheffGA').animate({
+        left: '150%',
+    }, 500 );
+});
+
+$('#A4').click(function(e) {
+    e.preventDefault();
+    $('#Y2007').animate({
+        left: '-100%',
+    }, 500 );
+    $('#Y2012').animate({
+        left: '-50%',
+    }, 500 );
+    $('#Y2014').animate({
+        left: '0%',
+    }, 500 );
+    $('#sheffBrick').animate({
+        left: '50%',
+    }, 500 );
+    $('#sheffGA').animate({
+        left: '100%',
+    }, 500 );
+});
+
+$('#A5').click(function(e) {
+    e.preventDefault();
+    $('#Y2007').animate({
+        left: '-150%',
+    }, 500 );
+    $('#Y2012').animate({
+        left: '-100%',
+    }, 500 );
+    $('#Y2014').animate({
+        left: '-50%',
+    }, 500 );
+    $('#sheffBrick').animate({
+        left: '0%',
+    }, 500 );
+    $('#sheffGA').animate({
+        left: '50%',
+    }, 500 );
+});
+
 //Instagram
 var instaObj; 
 
@@ -89,7 +185,7 @@ $('a').click(function(){
     $('html, body').animate({
         scrollTop: $( $.attr(this, 'href') ).offset().top
     }, 500);
-return false;
+    return false;
 });
 
 //Active Class Switching
@@ -103,13 +199,17 @@ $(window).scroll(function() {
             }
         });
 
-} else {
+    } else {
 
-    $('nav').removeClass('fixed');
-    $('nav a.active').removeClass('active');
-    $('nav a:nth-child(2)').addClass('active');
-}
-
+        $('nav').removeClass('fixed');
+        $('nav a.active').removeClass('active');
+        $('nav a:nth-child(2)').addClass('active');
+    }
+    if ($('#slide-numbers ul li:nth-child(2)').hasClass('active')){
+        $('#dock-container').css("display", "block");
+    } else {
+        $('#dock-container').css("display", "none");
+    }
 }).scroll();
 
 //Click on link to make active

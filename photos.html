@@ -41,29 +41,49 @@
         </nav>
 
         <section class="photos-content">
-            <div class="container photo-container">
-            <div class="mapWelcome">
-                <h1>Hello and welcome to divvy fans website!</h1>
-            </div>
-                <div class="mapWrap">
-                    <div id="map" style="width: 600px; height: 400px"></div><br/>
-                    <input id="prefer_bikes" type="radio" name="prefer" value="bikes" onClick="updateToggles(this);"/>
-                    <label for="prefer_bikes">Only show stations with available bikes</label><br/>
-                    <input id="prefer_docks" type="radio" name="prefer" value="docks" onClick="updateToggles(this);"/>
-                    <label for="prefer_docks">Only show stations with available docks</label><br/>
-                    <input id="prefer_all" type="radio" name="prefer" value="all" onClick="updateToggles(this);" checked/>
-                    <label for="prefer_all">Show all stations</label>
-                </div> <!-- /.mapWrap -->
-                <div class="mapText">
-                    <p>Hello and Welcome to the world-wide divvy bike fan website.  This site is ran by a guy who is a lot like you. I love to bike, explore the city, drink craft beer and enjoy life.</p>
-                    <p>I am currenly studying web development at GA in Chicago, with big dreams in persuing my passion for computer science and living life to the fullest.</p>
-                    <p>Please take a look at the map to the left to find the closest divvy bike. Click anywhere on the map to display the five nearest stations to that spot, along with information for bike availability.</p>
-                    <br>
-                    <img src="http://bramble-staging.s3-website-us-east-1.amazonaws.com/humphd/198/bike.png" alt="pixel bike">
-                </div>
-            </div> <!-- /.photo-container -->
-        </div><!-- .container -->
-    </section> <!-- /.content -->
+            <div class="container timeline-container">
+                <div class="timeline">
+                    <div class="timeline-box"id="Y2007">
+                        <h3>2007 - Frech Charm</h3>
+                        <hr>
+                        <p>In 2007, Chicago Mayor Richard M. Daley visited Paris, France, where he personally tested out their Vélib' bicycle sharing system and was "greatly impressed".He determined that a similar system would work well in Chicago. After returning from his European trip, Mayor Daley requested proposals from private partners to create a bike share system for Chicago. Two potential operators came forward, but submitted plans that would have been too expensive for the city to fund.</p>
+                    </div> <!-- /.2007 -->
+                    <div class="timeline-box" id="Y2012">
+                        <h3>2012 - Alta Bikeshare</h3>
+                        <hr>
+                        <p>In May 2012, the City of Chicago awarded Alta Bicycle Share a contract for "The Purchase, Installation, and Operation of a Bicycle Sharing System".</p>
+                    </div> <!-- /.2012 -->
+                    <div class="timeline-box" id="Y2014">
+                        <h3>2014 - I Join</h3>
+                        <hr>
+                        <p>I joined Divvy in 2014, once I started my job downtown. I am wabted to have the ability to drive around the city without having to take the CTA. Divvy proved to be a much faster and less expensive alternative to the CTA.</p>
+                    </div> <!-- /.2014 -->
+                    <div class="timeline-box" id="sheffBrick">
+                        <h3>2015 - SHEFFbrick</h3>
+                        <hr>
+                        <p>2015 was the pivotal year in my life, I became a much more avid Divvy fan with the help of my buddy Josh, who is a huge enthusiast of doing awesome things around the city.</p>
+                    </div> <!-- /.sheffBrick -->
+                    <div class="timeline-box" id="sheffGA">
+                        <h3>2015 - General Asembly</h3>
+                        <hr>
+                        <p>2015 was the year I decided to make some serious changes in my life.  I started GA, learned front end web development, and made this awesome website.  I hope to switch industries very soon and be able to do the work that I love.</p>
+                    </div> <!-- /.sheffGA -->
+                </div> <!-- /.timeline -->
+                <div id="dock-container">
+                  <div id="dock">
+                      <ul>
+                          <li><span>2007</span><img id="A1" src="img/tower.gif"/></li>
+                          <li><span>2012</span><img id="A2" src="img/alta.jpg"/></li>
+                          <li><span>2014</span><img id="A3" src="img/skompton.jpg"/></li>
+                          <li><span>2015</span><img id="A4" src="img/sheffbrick.jpg"/></li>
+                          <li><span>2015</span><img id="A5" src="img/ga.png"/></li>
+                      </ul>
+                      <div class="base"></div>
+                  </div>
+              </div>
+          </div> <!-- /.photo-container -->
+      </div><!-- .container -->
+  </section> <!-- /.content -->
 
 </main>
 <!--     <div class="push"></div> -->
@@ -111,57 +131,57 @@
 
         //Divvy
 
-            var prefer = null;
-            var map = L.map('map').setView([41.8826, -87.6506], 13);
-            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 18,
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
-            }).addTo(map);
-            var geojsonLayer = new L.GeoJSON([], {
-                onEachFeature: function (feature, layer) {
-                    layer.bindPopup("<h4>"+feature.properties.stationName+"</h4><p>" + feature.properties.availableBikes + " bikes, " + feature.properties.availableDocks + " docks available.</p>");
-                }
-            });
-            function updateToggles(radio) {
-                if (radio.value === "all") {
-                    prefer = null;
-                } else {
-                    prefer = radio.value;
-                }
+        var prefer = null;
+        var map = L.map('map').setView([41.8826, -87.6506], 13);
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+        }).addTo(map);
+        var geojsonLayer = new L.GeoJSON([], {
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup("<h4>"+feature.properties.stationName+"</h4><p>" + feature.properties.availableBikes + " bikes, " + feature.properties.availableDocks + " docks available.</p>");
             }
-            function onMapClick(e) {
-                console.log("You clicked the map at " + e.latlng.toString());
-                var xhrequest = new XMLHttpRequest();
-                var url= "http://shrouded-beach-2183.herokuapp.com/stations/nearby?lat="+e.latlng.lat+"&lon="+e.latlng.lng;
-                if (prefer) {
-                    url += "&prefer="+prefer;
-                }
-                xhrequest.onreadystatechange = function() {
-                    if (xhrequest.readyState == 4) {
-                        if (xhrequest.status == 200) {
-                            geojsonLayer.clearLayers();
-                            var layerItems =  JSON.parse(xhrequest.responseText);
-                            geojsonLayer.addData(layerItems);
-                            map.addLayer(geojsonLayer);
-                        }
+        });
+        function updateToggles(radio) {
+            if (radio.value === "all") {
+                prefer = null;
+            } else {
+                prefer = radio.value;
+            }
+        }
+        function onMapClick(e) {
+            console.log("You clicked the map at " + e.latlng.toString());
+            var xhrequest = new XMLHttpRequest();
+            var url= "http://shrouded-beach-2183.herokuapp.com/stations/nearby?lat="+e.latlng.lat+"&lon="+e.latlng.lng;
+            if (prefer) {
+                url += "&prefer="+prefer;
+            }
+            xhrequest.onreadystatechange = function() {
+                if (xhrequest.readyState == 4) {
+                    if (xhrequest.status == 200) {
+                        geojsonLayer.clearLayers();
+                        var layerItems =  JSON.parse(xhrequest.responseText);
+                        geojsonLayer.addData(layerItems);
+                        map.addLayer(geojsonLayer);
                     }
-                };
-                xhrequest.open('GET', url, true);
-                xhrequest.send(null);
-            }
-            map.on('click', onMapClick);
-        </script>
-        
+                }
+            };
+            xhrequest.open('GET', url, true);
+            xhrequest.send(null);
+        }
+        map.on('click', onMapClick);
     </script>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='http://www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-    </script>
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='http://www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+</script>
 </body>
 </html>
