@@ -18,8 +18,14 @@
     height: 100%;
 }
 
+@font-face {
+    font-family: "lucida grande";
+    src: url("fonts/6216.ttf");
+}
+
 body{
     height: 100%;
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
 }
 
 a{
@@ -34,6 +40,11 @@ main{
 nav{
     position: fixed;
     width: 100%;
+    z-index: 100000;
+}
+
+nav p:hover{
+    color: #000;
 }
 
 iframe{
@@ -260,6 +271,11 @@ footer p{
     margin-left: 0;
 }
 
+.holding-container{
+    height: 100%;
+            background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
 .image-div{
     width: 320px;
     height: 320px;
@@ -315,14 +331,26 @@ footer p{
     position: relative;
 }
 
+.instaLogo{
+    background-image: url('../img/insta-logo.jpg');
+    background-size: 500px 120px;
+    height: 120px;
+    width: 500px;
+    margin-top: 120px;
+    margin: 120px auto 0 auto;
+    border-right: 3px solid #fff;
+    border-left: 3px solid #fff;
+    border-top: 3px solid #fff;;
+}
+
 .instaImg{
     width: 500px;
     height: 500px;
     margin: 0 auto;
     background-size: cover;
     background-color: #52B5EE;
-    background-image: url('../img/content-img.jpg');
-    margin-top: 120px;
+    background-image: url('../img/placeholder.png');
+
     border: 3px solid #fff;
 }
 
@@ -536,7 +564,7 @@ footer p{
 }
 
 #Y2007{
-    width: 900px;
+    width: 600px;
     border: 3px solid #000;
     height: 400px;
     padding: 10px;
@@ -549,7 +577,7 @@ footer p{
 }
 
 #Y2012{
-    width: 900px;
+    width: 600px;
     border: 3px solid #000;
     height: 400px;
     padding: 10px;
@@ -561,7 +589,7 @@ footer p{
     margin-top: 50px;
 }
 #Y2014{
-    width: 900px;
+    width: 600px;
     border: 3px solid #000;
     height: 400px;
     padding: 10px;
@@ -575,7 +603,7 @@ footer p{
 }
 
 #iJoin{
-    width: 900px;
+    width: 600px;
     border: 3px solid #000;
     height: 400px;
     padding: 10px;
@@ -589,7 +617,7 @@ footer p{
 }
 
 #sheffBrick{
-    width: 900px;
+    width: 600px;
     border: 3px solid #000;
     height: 400px;
     padding: 10px;
@@ -603,7 +631,7 @@ footer p{
 }
 
 #sheffGA{
-    width: 900px;
+    width: 600px;
     border: 3px solid #000;
     height: 400px;
     padding: 10px;
@@ -615,7 +643,6 @@ footer p{
 #sheffGA img{
     margin-top: 50px;
 }
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
