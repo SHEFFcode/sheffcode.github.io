@@ -9,9 +9,13 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-   @font-face {
+@font-face {
     font-family: "lucida grande";
     src: url("../fonts/6216.ttf");
+}
+
+.container{
+    height: 100%;
 }
 
 html {
@@ -25,7 +29,7 @@ body{
 }
 
 main{
-    height: calc(100% - 60px);
+    height: 100%;
 }
 
 nav{
@@ -125,6 +129,17 @@ iframe{
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+.fp-tableCell{
+    height: 100%!important;
+}
+
+.section{
+    height: 100%!important;
+}
+
+.full{
+    height: 100%;
+}
 #fp-nav ul li a{
     background: none;
 }
