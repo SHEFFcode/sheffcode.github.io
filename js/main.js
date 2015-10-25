@@ -139,6 +139,8 @@ function prevPic(){
     if (instaIndex > 0){
         instaIndex--;
         $('.instaImg').css('background-image', 'url(' + instaObj[instaIndex].images.standard_resolution.url + ')');
+        $('.instaCapt').html('<p>' + instaObj[instaIndex].caption.text + '</p>'); 
+        $('#arrow-right').attr('disabled', false);
     }
     if (instaIndex === 0){
         $('.arrow-left').attr('disabled', true);
@@ -177,38 +179,6 @@ function prevImg(){
   }
 
 }
-
-//Smooth Scrolling
-$('a').click(function(){
-    $('html, body').animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top
-    }, 500);
-    return false;
-});
-
-//Active Class Switching
-$(window).scroll(function() {
-    var windscroll = $(window).scrollTop();
-    if (windscroll >= ($(window).height())) {
-        $('.slide').each(function(i) {
-            if ($(this).position().top <= windscroll - 60) {
-                $('nav a.active').removeClass('active');
-                $('nav a').eq(i + 1).addClass('active');
-            }
-        });
-
-    } else {
-
-        $('nav').removeClass('fixed');
-        $('nav a.active').removeClass('active');
-        $('nav a:nth-child(2)').addClass('active');
-    }
-    if ($('#slide-numbers ul li:nth-child(2)').hasClass('active')){
-        $('#dock-container').css("display", "block");
-    } else {
-        $('#dock-container').css("display", "none");
-    }
-}).scroll();
 
 //Click on link to make active
 $('#nav a').click(function() {
