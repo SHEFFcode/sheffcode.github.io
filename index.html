@@ -6,6 +6,7 @@
     <title>DIVVYfans</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="icon.ico">
     <link rel="stylesheet" href="css/normalize.css">
@@ -19,19 +20,19 @@
         <nav>
             <div class="nav-container" id="nav">
                 <div class="nav-div logo">
-                    <a href="#welcome"><img src="img/logo.svg" alt="divvy logo"></a>
+                <a href="#section0"><img src="img/logo.svg" alt="divvy logo"></a>
                 </div> <!-- /.logo -->
                 <div class="nav-div">
-                    <a href="#stories"><p><i class="fa fa-book"></i> stories</p></a>
+                    <a href="#section1"><p><i class="fa fa-book"></i> stories</p></a>
                 </div> <!-- /#stories -->
                 <div class="nav-div">
-                    <a href="#photos"><p><i class="fa fa-picture-o"></i> photos</p></a>
+                    <a href="#section2"><p><i class="fa fa-picture-o"></i> photos</p></a>
                 </div> <!-- /#photos -->
                 <div class="nav-div">
-                    <a href="#video"><p><i class="fa fa-video-camera"></i> videos</p></a>
+                    <a href="#section3"><p><i class="fa fa-video-camera"></i> videos</p></a>
                 </div> <!-- /#videos -->
                 <div class="nav-div">
-                    <a href="#about"><p><i class="fa fa-users"></i> about</p></a>
+                    <a href="#section4"><p><i class="fa fa-users"></i> about</p></a>
                 </div> <!-- /#about -->
                 <div class="nav-div fun">
                     <a href="#"><p><i class="fa fa-bicycle"></i> fun</p></a>
@@ -41,110 +42,111 @@
         </nav>
 
         <section class="index-content full">
-            <div class="slide" id="welcome">
-                <div class="container">
-                    <div class="mapWelcome">
-                        <h1>Hello and welcome to divvy fans website!</h1>
-                    </div>
-                    <div class="mapWrap">
-                        <div id="map" style="width: 600px; height: 400px"></div><br/>
-                        <input id="prefer_bikes" type="radio" name="prefer" value="bikes" onClick="updateToggles(this);"/>
-                        <label for="prefer_bikes">Only show stations with available bikes</label><br/>
-                        <input id="prefer_docks" type="radio" name="prefer" value="docks" onClick="updateToggles(this);"/>
-                        <label for="prefer_docks">Only show stations with available docks</label><br/>
-                        <input id="prefer_all" type="radio" name="prefer" value="all" onClick="updateToggles(this);" checked/>
-                        <label for="prefer_all">Show all stations</label>
-                    </div> <!-- /.mapWrap -->
-                    <div class="mapText">
-                        <p>Hello and Welcome to the world-wide divvy bike fan website.  This site is ran by a guy who is a lot like you. I love to bike, explore the city, drink craft beer and enjoy life.</p>
-                        <p>I am currenly studying web development at GA in Chicago, with big dreams in persuing my passion for computer science and living life to the fullest.</p>
-                        <p>Please take a look at the map to the left to find the closest divvy bike. Click anywhere on the map to display the five nearest stations to that spot, along with information for bike availability.</p>
-                        <br>
-                        <img class="bike" src="img/bike.png" alt="pixel bike">
-                    </div> <!-- /.mapText -->
-                </div><!-- .container -->
-            </div> <!-- /.slide #welcome -->
+            <div id="fullpage" class="fullpage-wrapper">
+                <div class="section" id="section0">
+                    <div class="container">
+                        <div class="mapWelcome">
+                            <h1>Hello and welcome to divvy fans website!</h1>
+                        </div>
+                        <div class="mapWrap">
+                            <div id="map" style="width: 600px; height: 400px"></div><br/>
+                            <input id="prefer_bikes" type="radio" name="prefer" value="bikes" onClick="updateToggles(this);"/>
+                            <label for="prefer_bikes">Only show stations with available bikes</label><br/>
+                            <input id="prefer_docks" type="radio" name="prefer" value="docks" onClick="updateToggles(this);"/>
+                            <label for="prefer_docks">Only show stations with available docks</label><br/>
+                            <input id="prefer_all" type="radio" name="prefer" value="all" onClick="updateToggles(this);" checked/>
+                            <label for="prefer_all">Show all stations</label>
+                        </div> <!-- /.mapWrap -->
+                        <div class="mapText">
+                            <p>Hello and Welcome to the world-wide divvy bike fan website.  This site is ran by a guy who is a lot like you. I love to bike, explore the city, drink craft beer and enjoy life.</p>
+                            <p>I am currenly studying web development at GA in Chicago, with big dreams in persuing my passion for computer science and living life to the fullest.</p>
+                            <p>Please take a look at the map to the left to find the closest divvy bike. Click anywhere on the map to display the five nearest stations to that spot, along with information for bike availability.</p>
+                            <br>
+                            <img class="bike" src="img/bike.png" alt="pixel bike">
+                        </div> <!-- /.mapText -->
+                    </div><!-- .container -->
+                </div> <!-- /.slide #section0 -->
 
-            <div class="slide" id="stories">
-                <div class="container timeline-container">
-                    <div class="timeline">
-                        <div class="timeline-box" id="Y2007">
-                            <h3>2007 - Frech Charm</h3>
-                            <hr>
-                            <p>In 2007, Chicago Mayor Richard M. Daley visited Paris, France, where he personally tested out their Vélib' bicycle sharing system and was "greatly impressed".He determined that a similar system would work well in Chicago. After returning from his European trip, Mayor Daley requested proposals from private partners to create a bike share system for Chicago. Two potential operators came forward, but submitted plans that would have been too expensive for the city to fund.</p>
-                        </div> <!-- /#Y2007 -->
-                        <div class="timeline-box" id="Y2012">
-                            <h3>2012 - Alta Bikeshare</h3>
-                            <hr>
-                            <p>In May 2012, the City of Chicago awarded Alta Bicycle Share a contract for "The Purchase, Installation, and Operation of a Bicycle Sharing System".</p>
-                        </div> <!-- /#Y2012 -->
-                        <div class="timeline-box" id="Y2014">
-                            <h3>2014 - I Join</h3>
-                            <hr>
-                            <p>I joined Divvy in 2014, once I started my job downtown. I am wabted to have the ability to drive around the city without having to take the CTA. Divvy proved to be a much faster and less expensive alternative to the CTA.</p>
-                        </div> <!-- /#Y2014 -->
-                        <div class="timeline-box" id="sheffBrick">
-                            <h3>2015 - SHEFFbrick</h3>
-                            <hr>
-                            <p>2015 was the pivotal year in my life, I became a much more avid Divvy fan with the help of my buddy Josh, who is a huge enthusiast of doing awesome things around the city.</p>
-                        </div> <!-- /#sheffBrick -->
-                        <div class="timeline-box" id="sheffGA">
-                            <h3>2015 - General Asembly</h3>
-                            <hr>
-                            <p>2015 was the year I decided to make some serious changes in my life.  I started GA, learned front end web development, and made this awesome website.  I hope to switch industries very soon and be able to do the work that I love.</p>
-                        </div> <!-- /#sheffGA -->
-                    </div> <!-- /.timeline -->
-                    <div id="dock-container">
-                      <div id="dock">
-                          <ul>
-                              <li><span>2007</span><img id="A1" src="img/tower.gif"  alt="2007 img"/></li>
-                              <li><span>2012</span><img id="A2" src="img/alta.jpg" alt="2012 img"/></li>
-                              <li><span>2014</span><img id="A3" src="img/skompton.jpg" alt="2014 img"/></li>
-                              <li><span>2015</span><img id="A4" src="img/sheffbrick.jpg" alt="2015 img"/></li>
-                              <li><span>2015</span><img id="A5" src="img/ga.png" alt="GA"/></li>
-                          </ul>
-                          <div class="base"></div>
-                      </div>
-                  </div> <!-- /.dock-container -->
-              </div> <!-- /.timeline-container -->
-          </div> <!-- /.slide #stories -->
+                <div class="section" id="section1">
+                    <div class="container timeline-container">
+                        <div class="timeline">
+                            <div class="timeline-box" id="Y2007">
+                                <h3>2007 - Frech Charm</h3>
+                                <hr>
+                                <p>In 2007, Chicago Mayor Richard M. Daley visited Paris, France, where he personally tested out their Vélib' bicycle sharing system and was "greatly impressed".He determined that a similar system would work well in Chicago. After returning from his European trip, Mayor Daley requested proposals from private partners to create a bike share system for Chicago. Two potential operators came forward, but submitted plans that would have been too expensive for the city to fund.</p>
+                            </div> <!-- /#Y2007 -->
+                            <div class="timeline-box" id="Y2012">
+                                <h3>2012 - Alta Bikeshare</h3>
+                                <hr>
+                                <p>In May 2012, the City of Chicago awarded Alta Bicycle Share a contract for "The Purchase, Installation, and Operation of a Bicycle Sharing System".</p>
+                            </div> <!-- /#Y2012 -->
+                            <div class="timeline-box" id="Y2014">
+                                <h3>2014 - I Join</h3>
+                                <hr>
+                                <p>I joined Divvy in 2014, once I started my job downtown. I am wabted to have the ability to drive around the city without having to take the CTA. Divvy proved to be a much faster and less expensive alternative to the CTA.</p>
+                            </div> <!-- /#Y2014 -->
+                            <div class="timeline-box" id="sheffBrick">
+                                <h3>2015 - SHEFFbrick</h3>
+                                <hr>
+                                <p>2015 was the pivotal year in my life, I became a much more avid Divvy fan with the help of my buddy Josh, who is a huge enthusiast of doing awesome things around the city.</p>
+                            </div> <!-- /#sheffBrick -->
+                            <div class="timeline-box" id="sheffGA">
+                                <h3>2015 - General Asembly</h3>
+                                <hr>
+                                <p>2015 was the year I decided to make some serious changes in my life.  I started GA, learned front end web development, and made this awesome website.  I hope to switch industries very soon and be able to do the work that I love.</p>
+                            </div> <!-- /#sheffGA -->
+                        </div> <!-- /.timeline -->
+                        <div id="dock-container">
+                          <div id="dock">
+                              <ul>
+                                  <li><span>2007</span><img id="A1" src="img/tower.gif"  alt="2007 img"/></li>
+                                  <li><span>2012</span><img id="A2" src="img/alta.jpg" alt="2012 img"/></li>
+                                  <li><span>2014</span><img id="A3" src="img/skompton.jpg" alt="2014 img"/></li>
+                                  <li><span>2015</span><img id="A4" src="img/sheffbrick.jpg" alt="2015 img"/></li>
+                                  <li><span>2015</span><img id="A5" src="img/ga.png" alt="GA"/></li>
+                              </ul>
+                              <div class="base"></div>
+                          </div>
+                      </div> <!-- /.dock-container -->
+                  </div> <!-- /.timeline-container -->
+              </div> <!-- /.slide #section1 -->
 
-          <div class="slide" id="photos">
-            <div class="container photo-container">
-                <div class="instagram-container">
-                    <div class="instagram">
-                        <img class="leftarrow" src="img/left_copy.png" alt="left arrow">
-                        <img class="rightarrow" src="img/right_copy.png" alt="right arrow">
-                        <div class="instaLogo"></div>
-                        <div class="instaImg"></div>
-                        <div class="instaCapt"></div>
-                    </div> <!-- /.instagram -->
-                </div><!-- .instagram-container -->
-            </div> <!-- /.slide #photos -->
-        </div>
+              <div class="section" id="section2">
+                <div class="container photo-container">
+                    <div class="instagram-container">
+                        <div class="instagram">
+                            <img class="leftarrow" src="img/left_copy.png" alt="left arrow">
+                            <img class="rightarrow" src="img/right_copy.png" alt="right arrow">
+                            <div class="instaLogo"></div>
+                            <div class="instaImg"></div>
+                            <div class="instaCapt"></div>
+                        </div> <!-- /.instagram -->
+                    </div><!-- .instagram-container -->
+                </div> <!-- /.slide #section2 -->
+            </div>
 
-        <div class="slide" id="video">
-            <div class="container video">
-                <div class="videoWrapper">
-                <iframe src="https://www.youtube.com/embed/f0Rdjn6SfRI" allowfullscreen></iframe>
-                </div> <!-- /.videoWrapper -->
-            </div> <!-- /.container video -->
-        </div><!-- /.slide #video -->
+            <div class="section" id="section3">
+                <div class="container video">
+                    <div class="videoWrapper">
+                        <iframe src="https://www.youtube.com/embed/f0Rdjn6SfRI" allowfullscreen></iframe>
+                    </div> <!-- /.videoWrapper -->
+                </div> <!-- /.container video -->
+            </div><!-- /.slide #section3 -->
 
-        <div class="slide" id="about">
-            <div class="container bio-container">
-                <div class="bio">
-                    <h1>Jeremy "SHEFFmachine" Shefer</h1>
-                    <p>I have always been a huge fan of biking and care free living. I am fortunate enough to live in a city where public transit can take you just about anywhere. However, it is often slow, and because of that I was always looking for an alternative to trains and busses. Divvy is that alternative. It allows me to navigate the city without a car, in an eco friendly, healthy and fun way. I am a huge fan of divvy, and I presume that if you have found your way onto this page, you are as well.</p>
-                    <p>You suggestions are always appreciated, please <a href="mailto:sheff_ne@yahoo.com">leave me a line.</a></p>
-                </div> <!-- /.bio -->
-                <div class="portrait">
-                    <img class="bio-pic" src="img/sheff.jpg" alt="sheff"><br>
-                    <img class="bio-pic" src="img/sheffsmile.jpg" alt="smiling sheff">
-                </div> <!-- /.portrait -->
-            </div><!-- .container bio-container -->
-        </div> <!-- /.slide #about -->
-
+            <div class="section" id="section4">
+                <div class="container bio-container">
+                    <div class="bio">
+                        <h1>Jeremy "SHEFFmachine" Shefer</h1>
+                        <p>I have always been a huge fan of biking and care free living. I am fortunate enough to live in a city where public transit can take you just about anywhere. However, it is often slow, and because of that I was always looking for an alternative to trains and busses. Divvy is that alternative. It allows me to navigate the city without a car, in an eco friendly, healthy and fun way. I am a huge fan of divvy, and I presume that if you have found your way onto this page, you are as well.</p>
+                        <p>You suggestions are always appreciated, please <a href="mailto:sheff_ne@yahoo.com">leave me a line.</a></p>
+                    </div> <!-- /.bio -->
+                    <div class="portrait">
+                        <img class="bio-pic" src="img/sheff.jpg" alt="sheff"><br>
+                        <img class="bio-pic" src="img/sheffsmile.jpg" alt="smiling sheff">
+                    </div> <!-- /.portrait -->
+                </div><!-- .container bio-container -->
+            </div> <!-- /.slide #section4 -->
+        </div> <!-- /#fullpage -->
     </section> <!-- /.index-content -->
 
 </main>
@@ -153,29 +155,78 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 <script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
+
 <script src="js/vendor/jquery.alton.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+<!-- New Scroll -->
+<script src="js/vendor/jquery.easings.min.js"></script>
+<!-- This following line is only necessary in the case of using the plugin option `scrollOverflow:true` -->
+<script type="text/javascript" src="js/vendor/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="js/jquery.fullPage.js"></script>
 <!-- Instagram -->
 <script type="text/javascript" src="js/vendor/insta.js"></script>
-
-<!-- Scroll Script -->
 <script>
-    $(document).alton({
-        // The full height container
-        fullSlideContainer: 'full',
-        // The full height slide class
-        singleSlideClass: 'slide',
-        // Enable side navigation
-        useSlideNumbers: true,
-        // Set the outside color of the pagination items
-        slideNumbersBorderColor: '#fff',
-        // Set the inner color of the pagination items (not active)
-        slideNumbersColor: 'transparent',
-        // The body class
-        bodyContainer: 'pageWrapper',
+$(document).ready(function() {
+    $('#fullpage').fullpage({
+        //Navigation
+        menu: false,
+        lockAnchors: false,
+        anchors:['firstPage', 'secondPage'],
+        navigation: true,
+        navigationPosition: 'right',
+        navigationTooltips: ['Welcome', 'Stories', 'Photos', 'Videos', 'About'],
+        showActiveTooltip: false,
+        slidesNavigation: true,
+        slidesNavPosition: 'bottom',
+
+        //Scrolling
+        css3: true,
+        scrollingSpeed: 700,
+        autoScrolling: true,
+        fitToSection: true,
+        fitToSectionDelay: 1000,
+        scrollBar: false,
+        easing: 'easeInOutCubic',
+        easingcss3: 'ease',
+        loopBottom: false,
+        loopTop: false,
+        loopHorizontal: true,
+        continuousVertical: false,
+        normalScrollElements: '#element1, .element2',
+        scrollOverflow: false,
+        touchSensitivity: 15,
+        normalScrollElementTouchThreshold: 5,
+
+        //Accessibility
+        keyboardScrolling: true,
+        animateAnchor: true,
+        recordHistory: true,
+
+        //Design
+        controlArrows: true,
+        verticalCentered: true,
+        resize : false,
+        paddingTop: '3em',
+        paddingBottom: '10px',
+        fixedElements: '#header, .footer',
+        responsiveWidth: 0,
+        responsiveHeight: 0,
+
+        //Custom selectors
+        sectionSelector: '.section',
+        slideSelector: '.slide',
+
+        //events
+        onLeave: function(index, nextIndex, direction){},
+        afterLoad: function(anchorLink, index){},
+        afterRender: function(){},
+        afterResize: function(){},
+        afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
+        onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}
     });
-</script> <!-- /.scroll script -->
+});
+
+    </script>
 
 <!-- Divvy maps script -->
 <script>
@@ -229,5 +280,6 @@
     r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
     ga('create','UA-XXXXX-X','auto');ga('send','pageview');
 </script>
+<script src="js/main.js"></script>
 </body>
 </html>

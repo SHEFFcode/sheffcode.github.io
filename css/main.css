@@ -125,7 +125,14 @@ iframe{
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-   .nav-container{
+#fp-nav ul li a{
+    background: none;
+}
+
+#fp-nav ul li a span{
+    background: #B4DA44;
+}
+.nav-container{
     background-color: #49B6E9;
     width: calc(100% - 10px);
     height: 60px;

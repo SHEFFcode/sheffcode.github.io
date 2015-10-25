@@ -146,8 +146,6 @@ function prevPic(){
 
 }
 
-
-
 //Global Variables
 var imgArray = ['url(img/content-img.jpg', 'url(img/bike.jpg)', 'url(img/bike1.jpg)', 'url(img/bike2.jpg)'];
    var index = 0;
