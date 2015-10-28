@@ -196,7 +196,7 @@ iframe{
 }
 
 .container{
-    background-image: url('../img/content-img.jpg');
+    background: url('../img/content-img.jpg')!important;
     background-size: cover;
     background-attachment: fixed;
     width: 100%;
@@ -744,7 +744,11 @@ Media Queries
     }
 
     .videoWrapper{
-        margin-top: 400px;
+        margin-top: 60px;
+    }
+
+    iframe{
+    	margin-top: 200px;
     }
 
     .timeline-box{
@@ -778,7 +782,11 @@ Media Queries
     }
 
     .videoWrapper{
-        margin-top:60px;
+        margin-top: 60px;
+    }
+
+    iframe{
+    	margin-top: 0px;
     }
 }
 
@@ -924,6 +932,11 @@ Media Queries
 
     .nav-mobile{
         font-size: 0.8em;
+    }
+
+    .videoWrapper iframe{
+    	height: 200px!important;
+    	margin-top: 60px;
     }
 }
 
