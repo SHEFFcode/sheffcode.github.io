@@ -20,10 +20,15 @@
         <nav>
             <div class="nav-container" id="nav">
                 <div class="nav-div logo">
-                <a href="#firstPage"><img src="img/logo.svg" alt="divvy logo"></a>
+                <a id="logoa" href="#firstPage"><img src="img/logo.svg" alt="divvy logo"></a>
                 </div> <!-- /.logo -->
+                <div class="hamburger">
+                    <div class="burger-lines"></div>
+                    <div class="burger-lines"></div>
+                    <div class="burger-lines"></div>
+                </div> <!-- /.hamburger -->
                 <div class="nav-div">
-                    <a href="#secondPage"><p><i class="fa fa-book"></i> stories</p></a>
+                    <a href="#secondPage"><p><i class="fa fa-book"></i> history</p></a>
                 </div> <!-- /#stories -->
                 <div class="nav-div">
                     <a href="#thirdPage"><p><i class="fa fa-picture-o"></i> photos</p></a>
@@ -40,6 +45,24 @@
                 <div class="clear"></div>
             </div> <!-- /.nav-container -->
         </nav>
+
+        <div id="mobile-menu">
+                <div class="nav-mobile">
+                    <a href="#firstPage"><p><i class="fa fa-home"></i> home</p></a>
+                </div> <!-- /#stories -->
+                <div class="nav-mobile">
+                    <a href="#secondPage"><p><i class="fa fa-book"></i> stories</p></a>
+                </div> <!-- /#stories -->
+                <div class="nav-mobile">
+                    <a href="#thirdPage"><p><i class="fa fa-picture-o"></i> photos</p></a>
+                </div> <!-- /#photos -->
+                <div class="nav-mobile">
+                    <a href="#fourthPage"><p><i class="fa fa-video-camera"></i> videos</p></a>
+                </div> <!-- /#videos -->
+                <div class="nav-mobile">
+                    <a href="#fifthPage"><p><i class="fa fa-users"></i> about</p></a>
+                </div> <!-- /#about -->
+        </div> <!-- /#mobile-menu -->
 
         <section class="index-content full">
             <div id="fullpage" class="fullpage-wrapper">
@@ -60,7 +83,7 @@
                         <div class="mapText">
                             <p>Hello and Welcome to the world-wide divvy bike fan website.  This site is ran by a guy who is a lot like you. I love to bike, explore the city, drink craft beer and enjoy life.</p>
                             <p>I am currenly studying web development at GA in Chicago, with big dreams in persuing my passion for computer science and living life to the fullest.</p>
-                            <p>Please take a look at the map to the left to find the closest divvy bike. Click anywhere on the map to display the five nearest stations to that spot, along with information for bike availability.</p>
+                            <p class="tooSmall">Please take a look at the map to the left to find the closest divvy bike. Click anywhere on the map to display the five nearest stations to that spot, along with information for bike availability.</p>
                             <br>
                             <img class="bike" src="img/bike.png" alt="pixel bike">
                         </div> <!-- /.mapText -->

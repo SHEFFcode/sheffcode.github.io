@@ -1273,28 +1273,28 @@ var sectionIndex = activeSection.index(SECTION_SEL);
             //I added this.
             if ($('#fp-nav ul li:nth-child(2) a').hasClass('active')){
                 $('#dock-container').css("display", "block");
-                $('#nav div:nth-child(2) a').addClass('active');
-            } else {
-                $('#dock-container').css("display", "none");
-                $('#nav div:nth-child(2) a').removeClass('active');
-            }
-
-            if ($('#fp-nav ul li:nth-child(3) a').hasClass('active')){
                 $('#nav div:nth-child(3) a').addClass('active');
             } else {
+                $('#dock-container').css("display", "none");
                 $('#nav div:nth-child(3) a').removeClass('active');
             }
 
-            if ($('#fp-nav ul li:nth-child(4) a').hasClass('active')){
+            if ($('#fp-nav ul li:nth-child(3) a').hasClass('active')){
                 $('#nav div:nth-child(4) a').addClass('active');
             } else {
                 $('#nav div:nth-child(4) a').removeClass('active');
             }
 
-            if ($('#fp-nav ul li:nth-child(5) a').hasClass('active')){
+            if ($('#fp-nav ul li:nth-child(4) a').hasClass('active')){
                 $('#nav div:nth-child(5) a').addClass('active');
             } else {
                 $('#nav div:nth-child(5) a').removeClass('active');
+            }
+
+            if ($('#fp-nav ul li:nth-child(5) a').hasClass('active')){
+                $('#nav div:nth-child(6) a').addClass('active');
+            } else {
+                $('#nav div:nth-child(6) a').removeClass('active');
             }
 
         });

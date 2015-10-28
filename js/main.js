@@ -1,5 +1,22 @@
+//Mobile Menu
+$('.hamburger').on('click', function(){
+    $('#mobile-menu').toggleClass('open');
+    if ($('#mobile-menu').hasClass('open') === true){
+        $('#mobile-menu').animate({right: "0"}, 400);
+    } else {
+        $('#mobile-menu').animate({right: "-250"}, 400);
+    }
+    $('.nav-mobile').on('click', function(){
+        $('#mobile-menu').animate({right: "-250"}, 400);
+        $('#mobile-menu').removeClass('open');
+    });
+});
+
 //Timeline
-$('#A1').click(function(e) {
+$('#A1').click(timeline1);
+$('#Y2007').click(timeline1);
+
+function timeline1(e){
     e.preventDefault();
     $('#Y2007').animate({
         left: '50%',
@@ -16,9 +33,12 @@ $('#A1').click(function(e) {
     $('#sheffGA').animate({
         left: '250%',
     }, 500 );
-});
+}
 
-$('#A2').click(function(e) {
+$('#A2').click(timeline2);
+$('#Y2012').click(timeline2);
+
+function timeline2(e){
     e.preventDefault();
     $('#Y2007').animate({
         left: '0',
@@ -35,9 +55,12 @@ $('#A2').click(function(e) {
     $('#sheffGA').animate({
         left: '200%',
     }, 500 );
-});
+}
 
-$('#A3').click(function(e) {
+$('#A3').click(timeline3);
+$('#Y2014').click(timeline3);
+
+function timeline3(e){
     e.preventDefault();
     $('#Y2007').animate({
         left: '-50%',
@@ -54,9 +77,12 @@ $('#A3').click(function(e) {
     $('#sheffGA').animate({
         left: '150%',
     }, 500 );
-});
+}
 
-$('#A4').click(function(e) {
+$('#A4').click(timeline4);
+$('#sheffBrick').click(timeline4);
+
+function timeline4(e){
     e.preventDefault();
     $('#Y2007').animate({
         left: '-100%',
@@ -73,9 +99,12 @@ $('#A4').click(function(e) {
     $('#sheffGA').animate({
         left: '100%',
     }, 500 );
-});
+}
 
-$('#A5').click(function(e) {
+$('#A5').click(timeline5);
+$('#sheffGA').click(timeline5);
+
+function timeline5(e){
     e.preventDefault();
     $('#Y2007').animate({
         left: '-150%',
@@ -92,7 +121,7 @@ $('#A5').click(function(e) {
     $('#sheffGA').animate({
         left: '50%',
     }, 500 );
-});
+}
 
 //Instagram
 var instaObj; 
@@ -183,6 +212,11 @@ function prevImg(){
 //Click on link to make active
 $('#nav a').click(function() {
     $('a').removeClass('active');
-    $(this).addClass('active');
+    if ((this).hasClass('logoA')){
+
+    } else {
+            $(this).addClass('active');
+    }
+
 });
 
