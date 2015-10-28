@@ -1263,7 +1263,7 @@ var sectionIndex = activeSection.index(SECTION_SEL);
                 //avoid firing it twice (as it does also on scroll)
                 activateMenuAndNav(v.anchorLink, v.sectionIndex);
             //I added this.
-            if ($('#fp-nav ul li:nth-child(2) a').hasClass('active')){
+            if ($('#fp-nav ul li:nth-child(2) a').hasClass('activeNav')){
                 $('#dock-container').css("display", "block");
                 $()
             } else {
@@ -1271,30 +1271,30 @@ var sectionIndex = activeSection.index(SECTION_SEL);
             }
 
             //I added this.
-            if ($('#fp-nav ul li:nth-child(2) a').hasClass('active')){
+            if ($('#fp-nav ul li:nth-child(2) a').hasClass('activeNav')){
                 $('#dock-container').css("display", "block");
-                $('#nav div:nth-child(3) a').addClass('active');
+                $('#nav div:nth-child(3) a').addClass('activeNav');
             } else {
                 $('#dock-container').css("display", "none");
-                $('#nav div:nth-child(3) a').removeClass('active');
+                $('#nav div:nth-child(3) a').removeClass('activeNav');
             }
 
-            if ($('#fp-nav ul li:nth-child(3) a').hasClass('active')){
-                $('#nav div:nth-child(4) a').addClass('active');
+            if ($('#fp-nav ul li:nth-child(3) a').hasClass('activeNav')){
+                $('#nav div:nth-child(4) a').addClass('activeNav');
             } else {
-                $('#nav div:nth-child(4) a').removeClass('active');
+                $('#nav div:nth-child(4) a').removeClass('activeNav');
             }
 
-            if ($('#fp-nav ul li:nth-child(4) a').hasClass('active')){
-                $('#nav div:nth-child(5) a').addClass('active');
+            if ($('#fp-nav ul li:nth-child(4) a').hasClass('activeNav')){
+                $('#nav div:nth-child(5) a').addClass('activeNav');
             } else {
-                $('#nav div:nth-child(5) a').removeClass('active');
+                $('#nav div:nth-child(5) a').removeClass('activeNav');
             }
 
-            if ($('#fp-nav ul li:nth-child(5) a').hasClass('active')){
-                $('#nav div:nth-child(6) a').addClass('active');
+            if ($('#fp-nav ul li:nth-child(5) a').hasClass('activeNav')){
+                $('#nav div:nth-child(6) a').addClass('activeNav');
             } else {
-                $('#nav div:nth-child(6) a').removeClass('active');
+                $('#nav div:nth-child(6) a').removeClass('activeNav');
             }
 
         });
